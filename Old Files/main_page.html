@@ -1,0 +1,53 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <style>
+    .row{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 10px;
+    }
+    </style>
+    <title>RC tool</title>
+</head>
+
+    <body>
+        <div class = "container">
+        <nav class="navbar navbar-inverse">
+        <div class="container">
+        <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target
+        ="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://google.com">RC tool</a>
+        </div>
+        </div>
+        </nav>
+
+        <div> {{errormessage[0]}}<br>
+        </div>
+        {% for sequence in sequences %}
+            <div class="row">
+                Query #{{ sequence.id }} [{{ sequence.date }}]<br>
+                Input sequence: {{ sequence.sequence }}<br>
+                Reverse complement: {{ sequence.rev_com }}<br>
+                GC-content: {{ sequence.gc }}
+            </div>
+        {% endfor %}
+
+        <div class="row">
+            <form action="." method="POST">
+                <textarea class="form-control" name="sequence" placeholder="Enter a Sequence"></textarea>
+                 <input type="submit" class="btn btn-success" value="Submit sequence">
+            </form>
+        </div>
+        </div><!-- /.container -->
+    </body>
+</html>

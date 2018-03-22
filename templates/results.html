@@ -1,0 +1,189 @@
+<html>
+<head>
+    <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    .Uploadtext {
+        display:flex;
+        margin-bottom: 8px;
+    }
+    .outercontainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+    }
+    .innercontainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        margin: 50px;
+    }
+    .box {
+        box-sizing:border-box;
+        border:1px solid lightgrey;
+        padding: 10px;
+    }
+    .row {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+   .navbar {
+        margin-bottom: 0px;
+        padding:0px;
+        border-radius: 0;
+        background-color: #2d2d30;
+        border: 0;
+        font-size: 15 px;
+        text-decoration: none;
+        letter-spacing: 4px;
+        opacity:0.9;
+    }
+    .navbar li a, .navbar .navbar-brand {
+        color: white;
+    }
+    .navbar-nav li a:hover {
+        color: #fff;
+    }
+    .navbar-nav li.active a {
+    color: green;
+    background-color:#29292c;
+    }
+    .login {
+    margin-bottom:5px;
+    }
+
+    .dropdown-menu {
+    width: 300px !important;
+    }
+    </style>
+    <title>OpenTrons</title>
+</head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                     </button>
+                    <a class="navbar-brand" href="http://garp.pythonanywhere.com/">OpenTron</a>
+                </div>
+                <div class= "collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav navbar-center">
+                            <li><a href="http://garp.pythonanywhere.com/newexp">New Experiment</a></li>
+                            <li><a href="http://garp.pythonanywhere.com/oldresults">Old Results</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right" id="right">
+                    {% if logged_in %}
+                        <li><a href="http://garp.pythonanywhere.com/account"><span class="glyphicon glyphicon-user"></span> Account</a></li>
+                        {% else %}
+                        <li><a href="http://garp.pythonanywhere.com/registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                        {%endif%}
+                        {% if logged_in %}
+                        <li><a onclick="current_url.submit();"><span class="glyphicon glyphicon-user"></span> Logout</a></li>
+                            <form id="current_url" action="/logout" method="POST">
+                                <input type="hidden" name="current_url" value="/"/>
+                            </form>
+
+                        {% else %}
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+            				<div class="dropdown-menu" style="padding: 15px; padding-bottom: 10px;">
+            				<form action="http://garp.pythonanywhere.com/login" class="form-horizontal"  method="POST" accept-charset="UTF-8">
+            				  <input id="name" class="form-control login" type="text" name="name" placeholder="Username.."/>
+            				  <input id="password" class="form-control login" type="password" name="password" placeholder="Password.."/>
+            				  <input class="btn btn-primary" type="submit" name="submit" value="Login"/>
+            				  <input type="hidden" name="current_url" value="/"/>
+            				</form>
+            				</div>
+		            	</li>
+		            	{%endif%}
+                    </ul>
+                 </div>
+            </div>
+        </nav>
+
+        <div class="row"></div>
+
+        <div class="outercontainer">
+            <div class="innercontainer">
+            <div>
+                <div class= "box">
+                    <img src="../static/images/{{image_samples}}" height="265"></img>
+                </div>
+
+                    <a href="../static/images/{{image_samples}}" download>
+                    <button class="btn" type="submit"><i class="fa fa-download"></i> Download</button>
+                    </a>
+
+            </div>
+
+            <div class="row"></div>
+
+            <div>
+                <div class= "box">
+                    <img src="../static/images/{{image_genes}}" height="265"></img>
+                </div>
+                <div>
+                    <a href="../static/images/{{image_genes}}" download>
+                    <button class="btn" type="submit"><i class="fa fa-download"></i> Download</button>
+                    </a>
+                </div>
+            </div>
+            </div>
+
+            <div>
+                <div class= "box">
+                    {{pipet_scheme}}
+                </div>
+                <div>
+                    <a href="../static/schemes/{{pipet_scheme}}" download>
+                    <button class="btn" type="submit"><i class="fa fa-download"></i> Download</button>
+                    </a>
+                </div>
+            </div>
+
+            <div class="row"></div>
+
+            <div>
+                <form method="post" enctype="multipart/form-data" action="{{request.path}}">
+                <div class="outercontainer">
+                        <div class="Uploadtext">
+                        Upload and process your qPCR-file here:
+                        </div>
+                        <div class="box">
+                            <input name="uploadfile" type="file" size="50" accept="text/*"><br>
+                            <div class="select-wrapper">
+                                Please select your housekeeping gene:
+                                <select name="housekeeper">
+                                    {% for gene in genes %}
+                                        <div>
+                                        <option>{{gene}}</option>
+                                        </div>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                </div>
+                <button class="btn" type="submit"><i class="fa fa-upload"></i> Process</button>
+                </form>
+            </div>
+            <div class="row"></div>
+
+        </div>
+        </div>
+    </body>
+<html>
+
+

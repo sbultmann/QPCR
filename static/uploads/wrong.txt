@@ -1,0 +1,33 @@
+181, 285 // 16,16
+173 to 189 , 277 to 293
+
+-187.5 , 625 // 1225 , 750
+-800 to 425 , 250 to 1000
+
+ -187.5 , -125 // 1225 , 750
+-800 to 425 , -500 to 250
+
+index , min , max
+16xt , 2768 , 3024
+16xw , -12800 , 6800
+16yt , 4432 , 4688
+16yw , -8000 , 4000
+
+
+
+
+
+
+Quadtree centre: (1500/1000)
+Quadtree width: 9000
+Quadtree height: 6000
+corners: (6000/4000) ; (6000/-2000) ; (-3000/-2000) ; (-3000/4000)
+
+Quadnode centres: (3750/2500) ; (3750/-500) ; (-750/-500) ; (-750/2500)
+Quadnode width: 4500
+Quadnode height: 3000
+
+Tile centre: (1711/285)
+Tile width: 16
+Tile height: 16
+Tile corners:  (1719/293) ; (1719/277) ; (1703/277) ; (1703/293)  -> lesser right corner
