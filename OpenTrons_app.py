@@ -1,12 +1,10 @@
 # Imports
 from flask import Flask, redirect, render_template, request, url_for, make_response
+from json import dumps, loads
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-from time import time
-import sys
 import hashlib
-from pipet_scheme import pipet_scheme
-from function import make_plate
+from function import make_plate, plot_qpcr_data, pipet_scheme, combine_files
 from werkzeug.utils import secure_filename
 import os
 
@@ -27,22 +25,27 @@ db = SQLAlchemy(app)
 # the database model of our queries
 class ExperimentModel(db.Model):
 
-    __tablename__ = "experiment_data_v1"
+    __tablename__ = "experiment_data_v3"
     id = db.Column(db.Integer, primary_key=True)
-    job = db.Column(db.String(4096))
-    user = db.Column(db.String(4096))
-    samples = db.Column(db.String(4096))
-    genes = db.Column(db.String(4096))
+    job = db.Column(db.Text())
+    user = db.Column(db.Text())
+    samples = db.Column(db.Text())
+    genes = db.Column(db.Text())
     status = db.Column(db.Integer)
     date = db.Column(db.DateTime())
+    scheme_images = db.Column(db.Text())
+    scheme_csv = db.Column(db.Text())
+    qpcr_images = db.Column(db.Text())
+    qpcr_houskeeping = db.Column(db.Text())
+    qpcr_results = db.Column(db.Text())
 
 # the ip database for lookup of logged in users
-class IPLookupModel(db.Model):
-    __tablename__ = "ip_lookup_v1"
-    id = db.Column(db.Integer, primary_key=True)
-    user = db.Column(db.String(4096))
-    ip = db.Column(db.String(4096))
-    login_date = db.Column(db.DateTime())
+#class IPLookupModel(db.Model):
+#    __tablename__ = "ip_lookup_v1"
+#    id = db.Column(db.Integer, primary_key=True)
+#    user = db.Column(db.String(4096))
+#    ip = db.Column(db.String(4096))
+#    login_date = db.Column(db.DateTime())
 
 
 class AccountModel(db.Model):
@@ -53,8 +56,8 @@ class AccountModel(db.Model):
     pw = db.Column(db.String(4096))
     email = db.Column(db.String(4096))
 
-class IPLookup:
-    '''The IPLookup class implements basic functionality for checking logged in users.'''
+#class IPLookup:
+#    '''The IPLookup class implements basic functionality for checking logged in users.'''
 
 
 class Account():
@@ -76,7 +79,7 @@ class Account():
         '''Commit the account information contained in this object to a database
         and return the database id of the submission.'''
         if not self.account_exists():
-            acc_model = AccountModel(user = self.user, pw = hashlib.sha512(self.pw.encode()).hexdigest(), email = self.email)
+            acc_model = AccountModel(user = self.user, pw = Account.get_hashed_password(self.pw), email = self.email)
             db.session.add(acc_model)
             db.session.commit()
             return acc_model.id
@@ -189,20 +192,21 @@ class Experiment:
 # Start site
 @app.route('/')
 def index():
-    return render_template("main_page.html", logged_in = cookie_is_logged_in())
+    return render_template("main_page.html", logged_in = cookie_is_logged_in(), user = cookie_get_user())
 
     #if len(user) > 0:
     #    return redirect(url_for("create_experiment"))
     #else:
     #    return render_template("main_page.html")
-
+@app.route('/info')
+def infous():
+    return render_template("info.html", logged_in = cookie_is_logged_in(), user = cookie_get_user())
 # New experiment creation
 @app.route('/newexp', methods=["GET", "POST"])
 def create_experiment():
     if request.method == "GET":
         return render_template("newexp.html", user = cookie_get_user(), too_many_samples = False, logged_in = cookie_is_logged_in())
     else: # receive a POST event, meaning data submission
-        start = time()
         # do some parsing here with the data
         experiment_data = {Experiment.KEY_USER_NAME:cookie_get_user(), Experiment.KEY_JOB_NAME:request.form["exp name"], Experiment.KEY_TEMPLATE:request.form["samples"], Experiment.KEY_PRIMER:request.form["genes"]}
         # object containing all data about the commited experiment data
@@ -212,24 +216,21 @@ def create_experiment():
             experiment_id = int(request.form["resubmission"])
             if experiment_id < 0:
                 experiment_id = current_experiment.commit_experiment()
-            elapsed_database = time() - start
-            pip_scheme = pipet_scheme(experiment_id, current_experiment.user_name, current_experiment.job_name, list(current_experiment.sample_names), list(current_experiment.gene_names))
-            elapsed_pip = time() - start
-            imgs = make_plate(experiment_id, list(current_experiment.sample_names), list(current_experiment.gene_names))
-            elapsed_img = time() - start
-            resp = make_response(redirect(url_for("index3", result_id = experiment_id, scheme = pip_scheme, img_genes = imgs[0], img_samples = imgs[1])))
-            elapsed_total = time() - start
-            print ("Setting up the function: %f \nPipette Scheme: %f\nImage Creation: %f\nTotal: %f" % (elapsed_database, elapsed_pip, elapsed_img, elapsed_total), file=sys.stderr)
-
+            # send the image information to the database
+            ExperimentModel.query.get(experiment_id).scheme_csv = pipet_scheme(experiment_id, current_experiment.user_name, current_experiment.job_name, list(current_experiment.sample_names), list(current_experiment.gene_names))
+            ExperimentModel.query.get(experiment_id).scheme_images = dumps(make_plate(experiment_id, list(current_experiment.sample_names), list(current_experiment.gene_names)))
+            db.session.commit()
+            resp = make_response(redirect(url_for("show_results", result_id = experiment_id)))
             return  resp# move to the results page
         else:
             return render_template("newexp.html", user = cookie_get_user(), too_many_samples = True, logged_in = cookie_is_logged_in())
 
 # Here the results are shown
 @app.route('/results/<result_id>', methods=["GET", "POST"])
-def index3(result_id):
+def show_results(result_id):
     if request.method == "GET":
-        return render_template("results.html", genes = Experiment.parse_sample_string(ExperimentModel.query.get(result_id).genes), pipet_scheme = request.args['scheme'], image_genes = request.args['img_genes'], image_samples = request.args['img_samples'], logged_in = cookie_is_logged_in())
+        images = loads(ExperimentModel.query.get(result_id).scheme_images)
+        return render_template("results.html", user = cookie_get_user(), genes = Experiment.parse_sample_string(ExperimentModel.query.get(result_id).genes), pipet_scheme = ExperimentModel.query.get(result_id).scheme_csv, image_genes = images[0], image_samples = images[1], logged_in = cookie_is_logged_in())
     else:
         # check if the post request has the file part
         if 'uploadfile' not in request.files:
@@ -243,9 +244,19 @@ def index3(result_id):
             # TODO: do some error handling
             print("")
         else:
+            # save the Q-PCR results to the disc
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(file.filename)))
-        print("Gene: %s" % (request.form["housekeeper"]), file = sys.stderr)
-        return render_template("main_page.html", logged_in = cookie_is_logged_in())
+            # commit the qpcr to the database
+            # TODO: parse the file to
+            # TODO:enter the data into:
+            exp = ExperimentModel.query.get(result_id)
+            real_data = combine_files(secure_filename(file.filename), exp.scheme_csv, request.form["housekeeper"])
+            exp.qpcr_images = dumps(plot_qpcr_data(real_data[1]))
+            exp.qpcr_housekeeping = dumps(request.form["housekeeper"])
+            exp.qpcr_results = real_data[0]
+            db.session.commit()
+            return redirect(url_for("show_qpcr_results", qpcr_id = result_id))
+        return render_template("main_page.html", user = cookie_get_user(), logged_in = cookie_is_logged_in())
 
 # Here OLD results are shown
 @app.route('/oldresults', methods=["GET", "POST"])
@@ -263,26 +274,39 @@ def show_all_experiments():
             exp = ExperimentModel.query.filter_by(user = user_name)
     return render_template("oldresults.html", user = user_name, experiments = exp, logged_in = cookie_is_logged_in())
 
+@app.route('/qpcr/<qpcr_id>', methods=["GET", "POST"])
+def show_qpcr_results(qpcr_id):
+    if request.method == "GET":
+        print("")
+    return render_template("qpcr.html", images = loads(ExperimentModel.query.get(qpcr_id).qpcr_images), qpcrfile = ExperimentModel.query.get(qpcr_id).qpcr_results, user = cookie_get_user(), logged_in = cookie_is_logged_in())
+
 @app.route("/registration", methods=["GET", "POST"])
 def handle_user_registration():
     '''Handle user registration.'''
     user_bool = None
     all_the_accounts = None
+    wrong_confirm_pw = False
     if request.method == "POST":
-        user_account = Account(user_name = request.form["name"], password = request.form["password"], e_mail = request.form["email"])
-        if user_account.user == "[ALL_USERS:REQUEST_ADMIN]":
-            all_the_accounts = AccountModel.query.all()
-        else:
-            user_bool = user_account.account_exists()
-            if not user_bool:
-                user_account.commit_account()
-    return render_template("registration.html", userExists = user_bool, hacks = all_the_accounts, logged_in = cookie_is_logged_in())
+        # check if the submit is correct
+        if "name" in request.form and "email" in request.form and "password" in request.form and "password_confirm" in request.form:
+            if request.form["password"] == request.form["password_confirm"]:
+                user_account = Account(user_name = request.form["name"], password = request.form["password"], e_mail = request.form["email"])
+                if user_account.user == "[ALL_USERS:REQUEST_ADMIN]":
+                    all_the_accounts = AccountModel.query.all()
+                else:
+                    # prevent existent or empty usernames
+                    user_bool = user_account.account_exists() or user_account.user == None or user_account.user == ""
+                    if not user_bool:
+                        user_account.commit_account()
+            else:
+                wrong_confirm_pw = True
+    return render_template("registration.html", userExists = user_bool, hacks = all_the_accounts, user = cookie_get_user(), wrong_confirm = wrong_confirm_pw, logged_in = cookie_is_logged_in())
 
 @app.route("/login", methods=["GET", "POST"])
 def handle_login():
     '''Handle login.'''
     if request.method == "GET":
-        return render_template("login.html", username = cookie_get_user(), logged_in = cookie_is_logged_in())
+        return render_template("login.html", user = cookie_get_user(), logged_in = cookie_is_logged_in())
     else: # reveive a POST event
         user_name = request.form["name"]
         user_password = request.form["password"]
@@ -296,7 +320,7 @@ def handle_login():
                 #request.remote_addr
                 return resp
             else:
-                return render_template("login.html", user = user_name, logged_in = False)
+                return redirect(request.form["current_url"])
 
 @app.route("/logout", methods=["GET", "POST"])
 def handle_logout():
@@ -309,9 +333,34 @@ def handle_logout():
 def manage_account():
     '''Manage the account of the currently logged in user.'''
     user_email = None
-    if Account.check_account(cookie_get_user()):
-        user_email = Account.get_account(cookie_get_user()).email
-    return render_template("account.html", logged_in = cookie_is_logged_in(), email = user_email)
+    changed_account = None
+    if request.method == "GET":
+        if Account.check_account(cookie_get_user()):
+            user_email = Account.get_account(cookie_get_user()).email
+    else: # POST event
+        user_account = Account.get_account(cookie_get_user())
+        user_email = user_account.email
+        changed_account = False
+        # do not allow non existent accounts
+        if user_account != None:
+            if 'email' in request.form:
+                    user_email = request.form["email"]
+                    user_account.email = user_email
+            # check if the from is filled correctly
+            if "oldpassword" in request.form and "newpassword1" in request.form and "newpassword2" in request.form:
+                changed_account = False
+                if Account.check_password(user_account.user, request.form["oldpassword"]):
+                    if request.form["newpassword1"] == request.form["newpassword2"]:
+                        user_account.pw = Account.get_hashed_password(request.form["newpassword1"])
+                        changed_account = True
+            # commit the changes
+            db.session.commit()
+    resp = make_response(render_template("account.html", user = cookie_get_user(), logged_in = cookie_is_logged_in(), email = user_email, change = changed_account))
+    # TODO: the website still thinks you are logged out until you reload the page
+    if changed_account:
+        resp.set_cookie("pw", "", 0)
+        resp.set_cookie("pw", Account.get_hashed_password(request.form["newpassword1"]))
+    return resp
 
 def cookie_is_logged_in():
     '''Check whether the user is logged in based on cookies. This is not secure!'''

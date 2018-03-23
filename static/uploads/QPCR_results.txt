@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>QPCR_results.txt : /home/Schokoladenschaf/QPCR_results.txt : Editor : Schokoladenschaf : PythonAnywhere</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="QPCR_results.txt : /home/Schokoladenschaf/QPCR_results.txt : Editor : Schokoladenschaf : PythonAnywhere">
+        <meta name="author" content="PythonAnywhere LLP">
+        <meta name="google-site-verification" content="O4UxDrfcHjC44jybs2vajc1GgRkTKCTRgVzeV6I9V14" />
+
+
+        <!-- Le styles -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" />
+
+        <link rel="stylesheet" href="/static/CACHE/css/ad915e4713ae.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="/static/CACHE/css/ec1e06dca4f2.css" type="text/css" /><link rel="stylesheet" href="/static/CACHE/css/def9afdeb602.css" type="text/css" media="screen" />
+
+        <!-- Le javascript -->
+        <script type="text/javascript">
+            var Anywhere = {};
+            Anywhere.urls = {};
+            Anywhere.csrfToken = "uOduxKe21pafEp67hcCXL4SMkC9Yqkvv";
+        </script>
+        <script type="text/javascript" src="/static/CACHE/js/8dc09e227063.js"></script>
+        
+
+        <script type="text/javascript" src="/static/CACHE/js/ebb3c10adcc1.js"></script>
+        
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $.extend(Anywhere.urls, {
+          save: "/user/Schokoladenschaf/files/home/Schokoladenschaf/QPCR_results.txt",
+          check_hash: "/user/Schokoladenschaf/files/home/Schokoladenschaf/QPCR_results.txt",
+          run: "/user/Schokoladenschaf/files/home/Schokoladenschaf/QPCR_results.txt" + "?run",
+          update_editor_mode_preference: "/user/Schokoladenschaf/account/update_editor_mode_preference",
+        });
+        var filename = "/home/Schokoladenschaf/QPCR_results.txt";
+        var hash = "07679dc8ed130cde1dd0a5c36d8297a7";
+        var interpreter = "None";
+
+        
+            Anywhere.Editor.InitialiseAce(ace, Anywhere.urls, filename, hash, interpreter);
+            $("#id_keybinding_mode_select").val("normal");
+            $("#id_keybinding_mode_select").trigger("change");
+        
+        var consoleVisible = false;
+        Anywhere.Editor.splitPanes(consoleVisible);
+
+        Anywhere.WebAppControl.initialize();
+        Anywhere2.initializeFileSharingOptions(
+          $('#id_file_sharing_options')[0],
+          {
+            url: "/api/v0/user/Schokoladenschaf/files/sharing/",
+            csrfToken: "uOduxKe21pafEp67hcCXL4SMkC9Yqkvv",
+            path: "/home/Schokoladenschaf/QPCR_results.txt"
+          }
+        );
+
+      });
+    </script>
+
+        
+
+        <!-- Le fav and touch icons -->
+        <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+
+
+    </head>
+
+     <body>
+        
+  
+
+
+
+
+  <nav class="navbar navbar-default fullscreen-main-navbar">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+        <img id="id_logo" src="/static/anywhere/images/PA-logo-snake-only.svg" height="100%" />
+      </a>
+    </div>
+
+    <div class="extra-nav-content">
+      
+
+  <div id="id_editor_toolbar">
+
+    <div class="pull-left">
+      <span id="id_breadcrumbs_div"><a class="breadcrumbs_link breadcrumb_entry" href="/user/Schokoladenschaf/files/">/</a><a class="breadcrumbs_link breadcrumb_entry" href="/user/Schokoladenschaf/files/home">home</a><span class="breadcrumb_entry">/</span><a class="breadcrumbs_link breadcrumb_entry" href="/user/Schokoladenschaf/files/home/Schokoladenschaf">Schokoladenschaf</a><span class="breadcrumb_entry">/</span><wbr><span class="breadcrumb_entry breadcrumb_terminal">QPCR_results.txt</span></span>
+
+      <span>
+        <span id="id_unsaved_changes_spacer">
+          <span id="id_unsaved_changes" class="pa_hidden muted">(unsaved changes)</span>
+        </span>
+      </span>
+    </div>
+
+    <div id="id_editor_messages" class="pull-left">
+      
+
+    </div>
+
+    <div class="pull-right">
+      <div id="id_editor_buttons_right" class="form-inline">
+        <span id="id_save_error" class="pa_hidden alert alert-danger">Error saving.</span>
+        <img src="/static/anywhere/images/spinner-small.gif" class="pa_hidden" id="id_save_spinner" />
+        
+          <span id="id_keyboard_shortcuts"><a href="#">Keyboard shortcuts:</a></span>
+          <select id="id_keybinding_mode_select" class="form-control input-sm">
+            <option value="normal">Normal</option>
+            <option value="vim">Vim</option>
+          </select>
+        
+        <button id="id_display_sharing_options" class="btn btn-default" data-toggle="modal" data-target="#id_file_sharing_modal" title="Get a URL to share this file">
+          <span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
+          Share
+        </button>
+        
+          <button id="id_save" class="btn btn-success" title="Save (Ctrl + S)">
+            <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
+            Save
+          </button>
+          <button id="id_save_as" class="btn btn-default" title="Save As">Save as...</button>
+        
+        
+
+        
+          
+        
+      </div>
+    </div>
+
+  </div>
+
+
+    </div>
+
+    <div class="dropdown fullscreen-hamburger fullscreen-mini-nav">
+      <button type="button" class="navbar-toggle" data-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <ul class="dropdown-menu pull-right">
+        
+  
+    <li class=""><a id="id_dashboard_link" href="/user/Schokoladenschaf/">Dashboard</a></li>
+  
+  <li class=""><a id="id_consoles_link" href="/user/Schokoladenschaf/consoles/">Consoles</a></li>
+  <li class=""><a id="id_files_link" href="/user/Schokoladenschaf/files/home/Schokoladenschaf">Files</a></li>
+  <li class=""><a id="id_web_app_link" href="/user/Schokoladenschaf/webapps/">Web</a></li>
+  <li class=""><a id="id_tasks_link" href="/user/Schokoladenschaf/tasks_tab/">Tasks</a></li>
+  <li class=""><a id="id_databases_link" href="/user/Schokoladenschaf/databases/">Databases</a></li>
+
+
+        <li class=""><a href="" class="feedback_link">Send feedback</a></li>
+<li class=""><a href="/forums/" class="forums_link">Forums</a></li>
+<li class=""><a href="https://help.pythonanywhere.com/" class="help_link">Help</a></li>
+<li class=""><a href="https://blog.pythonanywhere.com/" class="blog_link">Blog</a></li>
+
+  
+  <li class=""><a href="/user/Schokoladenschaf/account/" class="account_link">Account</a></li>
+  <li class="">
+    <form action="/logout/" method="POST">
+      <input type='hidden' name='csrfmiddlewaretoken' value='uOduxKe21pafEp67hcCXL4SMkC9Yqkvv' />
+      <button type="submit" class="btn-link logout_link">Log out</button>
+    </form>
+  </li>
+
+
+      </ul>
+    </div>
+
+  </nav>
+
+
+
+        
+    
+
+
+        
+  <div>
+    <div id="id_ide_split_panes">
+
+      
+        <div id="id_editor">Pos	Name	CpA1	Sample 1	18.82A2	Sample 2	19.5A3	Sample 3	19.21A4	Sample 4	18.76A5	Sample 5	18.47A6	Sample 6	18.16A7	Sample 7	18.64A8	Sample 8	18.22A9	Sample 9	18.24A10	Sample 10	18.06A11	Sample 11	18.21A12	Sample 12	18.07A13	Sample 13	18.81A14	Sample 14	18.5A15	Sample 15	18.33A16	Sample 16	18.43A17	Sample 17	18.16A18	Sample 18	18.06A19	Sample 19	18.27A20	Sample 20	18.14A21	Sample 21	17.88A22	Sample 22	18.92A23	Sample 23	18.64A24	Sample 24	18.54B1	Sample 25	19.17B2	Sample 26	18.66B3	Sample 27	18.26B4	Sample 28	18.53B5	Sample 29	18.7B6	Sample 30	18.64B7	Sample 31	18.14B8	Sample 32	18.19B9	Sample 33	18.59B10	Sample 34	17.5B11	Sample 35	18.17B12	Sample 36	17.95B13	Sample 37	17.73B14	Sample 38	17.46B15	Sample 39	17.23B16	Sample 40	18.77B17	Sample 41	18.56B18	Sample 42	18.55B19	Sample 43	18.47B20	Sample 44	18.29B21	Sample 45	18.14B22	Sample 46	17.78B23	Sample 47	18.15B24	Sample 48	18.26C1	Sample 49	19.16C2	Sample 50	18.67C3	Sample 51	18.5C4	Sample 52	18.87C5	Sample 53	18.97C6	Sample 54	18.81C7	Sample 55	18.98C8	Sample 56	18.55C9	Sample 57	18.26C10	Sample 58	18.7C11	Sample 59	18.33C12	Sample 60	18.27C13	Sample 61	18.06C14	Sample 62	17.67C15	Sample 63	17.45C16	Sample 64	19.1C17	Sample 65	18.92C18	Sample 66	18.61C19	Sample 67	19.05C20	Sample 68	18.76C21	Sample 69	18.71C22	Sample 70	19.03C23	Sample 71	18.63C24	Sample 72	18.75D1	Sample 73	18.99D2	Sample 74	18.48D3	Sample 75	18.1E1	Sample 97	35E2	Sample 98	35E3	Sample 99	35E4	Sample 100	35E5	Sample 101	35E6	Sample 102	35E7	Sample 103	35E8	Sample 104	35E9	Sample 105	35E10	Sample 106	35E11	Sample 107	35E12	Sample 108	35E13	Sample 109	35E14	Sample 110	35E15	Sample 111	35E16	Sample 112	35E17	Sample 113	35E18	Sample 114	35E19	Sample 115	35E20	Sample 116	35E21	Sample 117	35E22	Sample 118	35E23	Sample 119	35E24	Sample 120	35F1	Sample 121	35F2	Sample 122	35F3	Sample 123	35F4	Sample 124	35F5	Sample 125	35F6	Sample 126	35F7	Sample 127	35F8	Sample 128	35F9	Sample 129	35F10	Sample 130	33.64F11	Sample 131	34.1F12	Sample 132	34.51F13	Sample 133	35F14	Sample 134	35F15	Sample 135	35F16	Sample 136	35F17	Sample 137	35F18	Sample 138	35F19	Sample 139	35F20	Sample 140	35F21	Sample 141	35F22	Sample 142	35F23	Sample 143	35F24	Sample 144	35G1	Sample 145	31.75G2	Sample 146	31.69G3	Sample 147	31.64G4	Sample 148	35G5	Sample 149	35G6	Sample 150	35G7	Sample 151	34.46G8	Sample 152	34.34G9	Sample 153	35G10	Sample 154	35G11	Sample 155	35G12	Sample 156	35G13	Sample 157	35G14	Sample 158	35G15	Sample 159	35G16	Sample 160	31.51G17	Sample 161	31.09G18	Sample 162	30.77G19	Sample 163	35G20	Sample 164	35G21	Sample 165	35G22	Sample 166	32.82G23	Sample 167	32.62G24	Sample 168	32.47H1	Sample 169	35H2	Sample 170	35H3	Sample 171	35I1	Sample 193	23.27I2	Sample 194	22.59I3	Sample 195	22.19I4	Sample 196	23.89I5	Sample 197	23.44I6	Sample 198	23.21I7	Sample 199	23.6I8	Sample 200	23.24I9	Sample 201	22.99I10	Sample 202	24.17I11	Sample 203	23.59I12	Sample 204	23.17I13	Sample 205	23.98I14	Sample 206	23.73I15	Sample 207	23.62I16	Sample 208	23.91I17	Sample 209	23.7I18	Sample 210	23.58I19	Sample 211	25.34I20	Sample 212	25.42I21	Sample 213	25.97I22	Sample 214	21.54I23	Sample 215	23.44I24	Sample 216	23.31J1	Sample 217	24.69J2	Sample 218	24.28J3	Sample 219	24.02J4	Sample 220	22.94J5	Sample 221	22.85J6	Sample 222	22.86J7	Sample 223	24.3J8	Sample 224	24.23J9	Sample 225	24.16J10	Sample 226	26.44J11	Sample 227	26.08J12	Sample 228	25.87J13	Sample 229	24.31J14	Sample 230	24.1J15	Sample 231	23.94J16	Sample 232	23.53J17	Sample 233	23.63J18	Sample 234	23.55J19	Sample 235	23.01J20	Sample 236	22.84J21	Sample 237	22.81J22	Sample 238	23.67J23	Sample 239	23.51J24	Sample 240	23.18K1	Sample 241	25.48K2	Sample 242	25.22K3	Sample 243	25.05K4	Sample 244	24.03K5	Sample 245	23.83K6	Sample 246	23.77K7	Sample 247	24.57K8	Sample 248	24.26K9	Sample 249	24.25K10	Sample 250	23.65K11	Sample 251	23.44K12	Sample 252	23.11K13	Sample 253	23.5K14	Sample 254	23.58K15	Sample 255	23.52K16	Sample 256	24.7K17	Sample 257	24.07K18	Sample 258	24.23K19	Sample 259	24.21K20	Sample 260	23.9K21	Sample 261	24.02K22	Sample 262	25.09K23	Sample 263	24.9K24	Sample 264	24.82L1	Sample 265	23.86L2	Sample 266	23.67L3	Sample 267	23.57M1	Sample 289	21.58M2	Sample 290	20.94M3	Sample 291	20.96M4	Sample 292	22.52M5	Sample 293	22.26M6	Sample 294	21.98M7	Sample 295	21.89M8	Sample 296	22.03M9	Sample 297	21.87M10	Sample 298	21.55M11	Sample 299	21.46M12	Sample 300	21.15M13	Sample 301	22.5M14	Sample 302	22.28M15	Sample 303	21.93M16	Sample 304	22.1M17	Sample 305	21.85M18	Sample 306	21.81M19	Sample 307	22.32M20	Sample 308	22.02M21	Sample 309	21.35M22	Sample 310	21.93M23	Sample 311	22.03M24	Sample 312	22N1	Sample 313	22.01N2	Sample 314	21.87N3	Sample 315	21.49N4	Sample 316	22.19N5	Sample 317	22.11N6	Sample 318	21.96N7	Sample 319	22.01N8	Sample 320	21.98N9	Sample 321	21.91N10	Sample 322	23.98N11	Sample 323	23.7N12	Sample 324	23.54N13	Sample 325	21.63N14	Sample 326	21.32N15	Sample 327	21.91N16	Sample 328	22.28N17	Sample 329	22.42N18	Sample 330	22.13N19	Sample 331	22.5N20	Sample 332	22.24N21	Sample 333	22.12N22	Sample 334	21.3N23	Sample 335	21.34N24	Sample 336	21.68O1	Sample 337	24.67O2	Sample 338	24.33O3	Sample 339	24.12O4	Sample 340	22.21O5	Sample 341	22.11O6	Sample 342	21.93O7	Sample 343	23.53O8	Sample 344	23.44O9	Sample 345	22.84O10	Sample 346	22.05O11	Sample 347	21.9O12	Sample 348	21.54O13	Sample 349	23.06O14	Sample 350	22.97O15	Sample 351	22.91O16	Sample 352	25.28O17	Sample 353	25.27O18	Sample 354	25.2O19	Sample 355	22.8O20	Sample 356	22.79O21	Sample 357	22.88O22	Sample 358	25.53O23	Sample 359	25.41O24	Sample 360	25.21P1	Sample 361	23.1P2	Sample 362	22.91P3	Sample 363	22.77</div>
+      
+
+      <div id="id_ide_console">
+        
+          <div id="id_ide_console_pane_buttons">
+            <center>
+              
+                <p>This is not a Python file, you can't run it here.</p>
+              
+            </center>
+          </div>
+          <iframe style="display: none" id="id_console" name="console" class="soft_keyboard_sensitive">
+          </iframe>
+          <div style="display: none;" class="console_limit_reached">
+            <div class="container">
+    <div class="row">
+        <div class="col-md-5 col-md-offset-3 well">
+            <h1>Console limit reached :-/</h1>
+
+            <p>
+            With your current PythonAnywhere account you can have up to
+            2 consoles.  You can
+            have more if you
+            <a href="/user/Schokoladenschaf/account/">upgrade your account</a>!
+
+            <p>
+            Alternatively, if you don't feel like paying us more money, you
+            can <a href="/user/Schokoladenschaf/consoles/">kill some consoles on your Consoles page</a>.
+        </div>
+    </div>
+</div>
+
+
+          </div>
+        
+      </div>
+
+    </div>
+
+    <div id="id_go_to_line_dialog" class="pa_hidden">
+      <p class="form-inline">Line number: <input id="id_go_to_line_dialog_input" /></p>
+      <div class="dialog_buttons">
+        <button class="btn btn-default" id="id_go_to_line_dialog_ok_button">Go</button>
+        <button class="btn btn-default" id="id_go_to_line_dialog_close_button">Close</button>
+      </div>
+    </div>
+
+    <div id="id_file_changed_on_disk" class="pa_hidden">
+      <p>Are you sure you want to save it?  Alternatively, you could re-open it in a new tab to check differences</p>
+      <div class="dialog_buttons">
+        <button id="id_force_save" class="btn btn-danger">Force Save</button>
+        <button id="id_cancel_save" class="btn btn-default">Cancel</button>
+      </div>
+    </div>
+
+    <div id="id_save_as_dialog" class="pa_hidden">
+      <form class="form-inline">
+        <div class="form-group">
+          <label for="id_save_as_path">Please enter a path:</label>
+          <input id="id_save_as_path" class="form-control" style="width: 100%;" />
+        </div>
+        <img id="id_save_as_spinner" class="spinner pa_hidden" src="/static/anywhere/images/spinner-small.gif" />
+        <p>
+          <span id="id_save_as_error" class="error_message"></span>
+        </p>
+        <div class="dialog_buttons">
+          <button id="id_save_as_ok" type="submit" class="btn btn-primary">Save</button>
+          <button id="id_save_as_cancel" type="button" class="btn btn-default">Cancel</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="modal fade" id="id_file_sharing_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">File Sharing options</h4>
+          </div>
+          <div class="modal-body">
+            <div id="id_file_sharing_options"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+        
+
+        
+
+
+        <div id="id_feedback_dialog" title="Help us improve" style="display:none">
+    <div id="id_feedback_dialog_blurb_big" class="dialog_blurb_big">
+        It's always a pleasure to hear from you!
+    </div>
+    <div id="id_feedback_dialog_blurb_small">
+        Ask us a question, or tell us what you love or hate about PythonAnywhere.<br/>
+        We'll get back to you over email ASAP.
+    </div>
+    <textarea id="id_feedback_dialog_text" rows="6"></textarea>
+    <input id="id_feedback_dialog_email_address" type="text" placeholder="Email address (optional - only necessary if you would like us to contact you)"/>
+    
+    <div id="id_feedback_dialog_error" class="pa_hidden">
+        Sorry, there was an error connecting to the server. <br/>Please try again in a few moments...
+    </div>
+    <div class="dialog_buttons">
+        <img id="id_feedback_dialog_spinner" src="/static/anywhere/images/spinner-small.gif" />
+        <button class="btn btn-primary" id="id_feedback_dialog_ok_button">OK</button>
+        <button class="btn btn-default" id="id_feedback_dialog_cancel_button">Cancel</button>
+    </div>
+</div>
+
+
+        
+            <script>
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'UA-18014859-6', 'auto');
+                ga('send', 'pageview');
+            </script>
+        
+
+        
+        <!-- preload font awesome fonts to avoid glitch when switching icons -->
+        <div style="width: 0; height: 0; overflow: hidden"><i class="fa fa-square-o fa-3x" ></i></div>
+    </body>
+</html>

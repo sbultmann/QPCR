@@ -1,0 +1,90 @@
+A1,TBX21,Gut-associated lymphocytes
+A2,TBX21,Gut-associated lymphocytes
+A3,TBX21,Gut-associated lymphocytes
+A4,TBX21,Inflamed tissue lymphocytes
+A5,TBX21,Inflamed tissue lymphocytes
+A6,TBX21,Inflamed tissue lymphocytes
+A7,TBX21,Lung-associated lymphocytes
+A8,TBX21,Lung-associated lymphocytes
+A9,TBX21,Lung-associated lymphocytes
+A10,TBX21,Skin-associated lymphocytes
+A11,TBX21,Skin-associated lymphocytes
+A12,TBX21,Skin-associated lymphocytes
+A13,TBX21,water
+A14,TBX21,water
+A15,TBX21,water
+A16,GATA3,Gut-associated lymphocytes
+A17,GATA3,Gut-associated lymphocytes
+A18,GATA3,Gut-associated lymphocytes
+A19,GATA3,Inflamed tissue lymphocytes
+A20,GATA3,Inflamed tissue lymphocytes
+A21,GATA3,Inflamed tissue lymphocytes
+A22,GATA3,Lung-associated lymphocytes
+A23,GATA3,Lung-associated lymphocytes
+A24,GATA3,Lung-associated lymphocytes
+B1,GATA3,Skin-associated lymphocytes
+B2,GATA3,Skin-associated lymphocytes
+B3,GATA3,Skin-associated lymphocytes
+B4,GATA3,water
+B5,GATA3,water
+B6,GATA3,water
+B7,RORC,Gut-associated lymphocytes
+B8,RORC,Gut-associated lymphocytes
+B9,RORC,Gut-associated lymphocytes
+B10,RORC,Inflamed tissue lymphocytes
+B11,RORC,Inflamed tissue lymphocytes
+B12,RORC,Inflamed tissue lymphocytes
+B13,RORC,Lung-associated lymphocytes
+B14,RORC,Lung-associated lymphocytes
+B15,RORC,Lung-associated lymphocytes
+B16,RORC,Skin-associated lymphocytes
+B17,RORC,Skin-associated lymphocytes
+B18,RORC,Skin-associated lymphocytes
+B19,RORC,water
+B20,RORC,water
+B21,RORC,water
+B22,FOXP3,Gut-associated lymphocytes
+B23,FOXP3,Gut-associated lymphocytes
+B24,FOXP3,Gut-associated lymphocytes
+C1,FOXP3,Inflamed tissue lymphocytes
+C2,FOXP3,Inflamed tissue lymphocytes
+C3,FOXP3,Inflamed tissue lymphocytes
+C4,FOXP3,Lung-associated lymphocytes
+C5,FOXP3,Lung-associated lymphocytes
+C6,FOXP3,Lung-associated lymphocytes
+C7,FOXP3,Skin-associated lymphocytes
+C8,FOXP3,Skin-associated lymphocytes
+C9,FOXP3,Skin-associated lymphocytes
+C10,FOXP3,water
+C11,FOXP3,water
+C12,FOXP3,water
+C13,MT-ATP6,Gut-associated lymphocytes
+C14,MT-ATP6,Gut-associated lymphocytes
+C15,MT-ATP6,Gut-associated lymphocytes
+C16,MT-ATP6,Inflamed tissue lymphocytes
+C17,MT-ATP6,Inflamed tissue lymphocytes
+C18,MT-ATP6,Inflamed tissue lymphocytes
+C19,MT-ATP6,Lung-associated lymphocytes
+C20,MT-ATP6,Lung-associated lymphocytes
+C21,MT-ATP6,Lung-associated lymphocytes
+C22,MT-ATP6,Skin-associated lymphocytes
+C23,MT-ATP6,Skin-associated lymphocytes
+C24,MT-ATP6,Skin-associated lymphocytes
+D1,MT-ATP6,water
+D2,MT-ATP6,water
+D3,MT-ATP6,water
+D4,RPS17,Gut-associated lymphocytes
+D5,RPS17,Gut-associated lymphocytes
+D6,RPS17,Gut-associated lymphocytes
+D7,RPS17,Inflamed tissue lymphocytes
+D8,RPS17,Inflamed tissue lymphocytes
+D9,RPS17,Inflamed tissue lymphocytes
+D10,RPS17,Lung-associated lymphocytes
+D11,RPS17,Lung-associated lymphocytes
+D12,RPS17,Lung-associated lymphocytes
+D13,RPS17,Skin-associated lymphocytes
+D14,RPS17,Skin-associated lymphocytes
+D15,RPS17,Skin-associated lymphocytes
+D16,RPS17,water
+D17,RPS17,water
+D18,RPS17,water

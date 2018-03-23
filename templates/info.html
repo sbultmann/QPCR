@@ -1,0 +1,267 @@
+<html>
+<head>
+    <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Berkshire Swash' rel='stylesheet'>
+    <style>
+    body {
+    font-family: "Lato", sans-serif;
+    }
+
+    .sidenav {
+        width: 130px;
+        position: fixed;
+        z-index: 1;
+        top: 20px;
+        left: 10px;
+        background: #eee;
+        overflow-x: hidden;
+        padding: 8px 0;
+    }
+
+    .sidenav a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #2196F3;
+        display: block;
+    }
+
+    .sidenav a:hover {
+        color: #064579;
+    }
+
+    .main {
+        margin-left: 140px; /* Same width as the sidebar + left position in px */
+        font-size: 28px; /* Increased text to enable scrolling */
+        padding: 0px 10px;
+    }
+
+    @media screen and (max-height: 450px) {
+        .sidenav {padding-top: 15px;}
+        .sidenav a {font-size: 18px;}
+    }
+
+    #right.navbar-nav{
+        position:relative;
+        right:15px;
+    }
+    .row{
+        margin-top: 30px;
+        margin-bottom: 30px;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+   .navbar {
+        margin-bottom: 0;
+        background-color: #2d2d30;
+        border: 0;
+        font-size: 15 px;
+        text-decoration: none;
+        letter-spacing: 4px;
+        opacity:0.9;
+    }
+    .navbar li a, .navbar .navbar-brand {
+        color: white;
+    }
+    .navbar-nav li a:hover {
+        color: #fff;
+    }
+    .navbar-nav li.active a {
+    color: green;
+    background-color:#29292c;
+    }
+    .carousel-inner img {
+      -webkit-filter: grayscale(90%);
+      filter: grayscale(90%); /* make all photos black and white */
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+    }
+    .carousel-caption h3 {
+      color: black;
+    }
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+        }
+    }
+    #active{
+    background-color: #4CAF50;
+    color: white;
+    }
+    .login {
+    margin-bottom:5px;
+    }
+
+    .dropdown-menu {
+    width: 300px;
+    }
+    </style>
+    <title>OpenTrons384</title>
+</head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar" href="http://garp.pythonanywhere.com/#">Home></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                     </button>
+                    <a class="navbar-brand" href="http://garp.pythonanywhere.com">OpenTrons</a>
+                </div>
+                <div class= "collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-center">
+                        <li><a href="http://garp.pythonanywhere.com/newexp">New Experiment</a></li>
+                        <li><a href="http://garp.pythonanywhere.com/oldresults">Old Results</a></li>
+                        <li><a href="http://garp.pythonanywhere.com/info">Info</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                    {% if logged_in %}
+                        <li><a href="http://garp.pythonanywhere.com/account"><span class="glyphicon glyphicon-user"></span> Account</a></li>
+                        {% else %}
+                        <li><a href="http://garp.pythonanywhere.com/registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                        {%endif%}
+                        {% if logged_in %}
+                        <li><a onclick="current_url.submit();"><span class="glyphicon glyphicon-user"></span> Logout</a></li>
+                            <form id="current_url" action="/logout" method="POST">
+                                <input type="hidden" name="current_url" value="{{request.path}}"/>
+                            </form>
+
+                        {% else %}
+                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+            				<div class="dropdown-menu" style="padding: 15px; padding-bottom: 10px;">
+            				<form action="http://garp.pythonanywhere.com/login" class="form-horizontal"  method="POST" accept-charset="UTF-8">
+            				  <input id="name" class="form-control login" type="text" name="name" placeholder="Username.."/>
+            				  <input id="password" class="form-control login" type="password" name="password" placeholder="Password.."/>
+            				  <input class="btn btn-primary" type="submit" name="submit" value="Login"/>
+            				  <input type="hidden" name="current_url" value="{{request.path}}"/>
+            				</form>
+            				</div>
+		            	</li>
+		            	{%endif%}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    <div class= "container" style="margin-top:100px">
+
+
+        <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                          <div class="panel-heading">
+                            <h4 class="panel-title">
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">OpenTrons</a>
+                            </h4>
+                          </div>
+                        <div id="collapse1" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <h3 class="text-center">About OpenTrons Robotics</h3>
+                                            <p> Today, biologists spend too much time pipetting by hand. We think biologists should have robots to do pipetting for them.
+                                            People doing science should be free of tedious benchwork and repetitive stress injuries.
+                                            They should be able to spend their time designing experiments and analyzing data.
+                                            OpenTrons make robots for biologists. The mission is to provide the scientific community with a common platform to easily share protocols and reproduce each other's results.
+                                            The robots automate experiments that would otherwise be done by hand,
+                                            allowing our community to spend more time pursuing answers to some of the 21st century’s most important questions.</p>
+                                        <div class="row" align = "center">
+                                               <a href= "https://opentrons.com"><img src= "https://s3.amazonaws.com/opentrons-images/website/ot_logo_full.png"></a>
+                                                  <p>Check out OpenTrons website</p>
+                                        </div>
+                            </div>
+                       </div>
+                </div>
+
+                <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                              <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Website Tools</a>
+                            </h4>
+                        </div>
+                         <div id="collapse2" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <h3 class="text-center">Tools</h3>
+                                    <p> Through our website you can prepare the pipetting scheme for your qPCR by using our website tool. Once your qPCR is done, you can upload the results for your qPCR and analyze it.</p>
+                                    <p> Just sign up to the page and go to new experiment tab to get the pipetting scheme of your experiment, or simply recall older schemes of previous experiments from old results tab. Once your qPCR results are produced you can upload them to our website and get it proccessed</p>
+                                    <div class="row bg-3 text-center" align= center>
+                                               <div class="row">
+                                                <div class="col-sm-4">
+                                                  <p>Pippetting scheme</p>
+                                                  <img src="https://bitesizebio.com/wp-content/uploads/2015/07/Figure-1_Plate-layout.jpg" height="202" width="202" alt="Image">
+                                                </div>
+                                                <div class="col-sm-4">
+                                                  <p>qPCR Analysis</p>
+                                                  <img src="http://www.bio-rad.com/webroot/web/images/lsr/solutions/technologies/gene_expression/qPCR_real-time_PCR/technology_detail/real-time-pcr-amplification-plot-qpcr-real-time-pcr.jpg" height="202" width="202" alt="Image">
+                                                </div>
+                                             </div>
+
+                                    </div>
+                            </div>
+                       </div>
+                </div>
+
+                <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">About us</a>
+                            </h4>
+                        </div>
+                        <div id="collapse3" class="panel-collapse collapse">
+                                <div class="panel-body" align = center>
+                                    <img src= "https://pixteller.com/assets/storage/designs_images/2015-10-20/img_158445809d5b12face.jpg">
+                                </div>
+                        </div>
+                </div>
+
+                <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Contact</a>
+                            </h4>
+                        </div>
+                        <div id="collapse4" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <h3 class="text-center">Have any questions or issues?</h3>
+                                    <p class="text-center"><em>Feel free to contact us!</em></p>
+
+                                <div class="row">
+                                        <div class="col-md-4">
+                                          <p><span class="glyphicon glyphicon-map-marker"></span>City, Country</p>
+                                          <p><span class="glyphicon glyphicon-phone"></span>Phone: +0011111111</p>
+                                          <p><span class="glyphicon glyphicon-envelope"></span>Email: mail@mail.com</p>
+                                        </div>
+                                </div>
+                            <form action="/info" method="POST">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                            <div class="row">
+                                                <div class="col-sm-6 form-group">
+                                                    <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+                                                </div>
+                                                <div class="col-sm-6 form-group">
+                                                    <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+                                                <div class="col-md-12 form-group">
+                                                    <button class="btn pull-right" type="submit">Send</button>
+                                                </div>
+                                            </div>
+                                     </div>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                </div>
+
+
+        </div>
+    </div>
+    </body>
+</html>

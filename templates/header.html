@@ -84,7 +84,7 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                     {% if logged_in %}
-                        <li><a href="http://garp.pythonanywhere.com/account"><span class="glyphicon glyphicon-user"></span> Account</a></li>
+                        <li><a href="http://garp.pythonanywhere.com/account"><span class="glyphicon glyphicon-user"></span> {{user}}</a></li>
                         {% else %}
                         <li><a href="http://garp.pythonanywhere.com/registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                         {%endif%}

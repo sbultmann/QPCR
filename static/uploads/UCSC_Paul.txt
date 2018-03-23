@@ -1,0 +1,44 @@
+track type=bigWig name="ATAC_T1KO_ESC" description="ATAC_T1KO_ESC" bigDataUrl=http://human.bio.lmu.de/_webtools/data/ATAC_2i_T1CM_r1.sorted.woChrM.DT.bw color=199,249,21 visibility=full yLineOnOff=on autoScale=on yLineMark="0.0" alwaysZero=on graphType=bar maxHeightPixels=128:75:11 windowingFunction=maximum smoothingWindow=10
+
+track type=bigWig name="ATAC_T1CM_ESC" description="ATAC_T1CM_ESC" bigDataUrl=http://human.bio.lmu.de/_webtools/data/ATAC_Epi_T1CM_r1.sorted.woChrM.DT.bw color=149,249,21 visibility=full yLineOnOff=on autoScale=on yLineMark="0.0" alwaysZero=on graphType=bar maxHeightPixels=128:75:11 windowingFunction=maximum smoothingWindow=10
+
+track type=bigWig name="ATAC_WT_ESC" description="ATAC_WT_ESC" bigDataUrl=http://human.bio.lmu.de/_webtools/data/ATAC_Epi_wt_r1.sorted.woChrM.DT.bw color=99,249,21 visibility=full yLineOnOff=on autoScale=on yLineMark="0.0" alwaysZero=on graphType=bar maxHeightPixels=128:75:11 windowingFunction=maximum smoothingWindow=10
+
+
+track type=bigWig name="ATAC_T1KO_EpiLC" description="ATAC_T1KO_EpiLC" bigDataUrl=http://human.bio.lmu.de/_webtools/data/ATAC_Epi_T1KO_r1.sorted.woChrM.DT.bw color=99,249,221 visibility=full yLineOnOff=on autoScale=on yLineMark="0.0" alwaysZero=on graphType=bar maxHeightPixels=128:75:11 windowingFunction=maximum smoothingWindow=10
+
+track type=bigWig name="ATAC_T1CM_EpiLC" description="ATAC_T1CM_EpiLC" bigDataUrl=http://human.bio.lmu.de/_webtools/data/ATAC_Epi_T1CM_r1.sorted.woChrM.DT.bw color=99,249,171 visibility=full yLineOnOff=on autoScale=on yLineMark="0.0" alwaysZero=on graphType=bar maxHeightPixels=128:75:11 windowingFunction=maximum smoothingWindow=10
+
+track type=bigWig name="ATAC_WT_EpiLC" description="ATAC_WT_EpiLC" bigDataUrl=http://human.bio.lmu.de/_webtools/data/ATAC_Epi_wt_r1.sorted.woChrM.DT.bw color=99,249,121 visibility=full yLineOnOff=on autoScale=on yLineMark="0.0" alwaysZero=on graphType=bar maxHeightPixels=128:75:11 windowingFunction=maximum smoothingWindow=10
+
+track type=bigWig name="Tet1_EpiLC" description="Tet1_EpiLC" bigDataUrl=http://human.bio.lmu.de/_webtools/data/Tet1_EpiLC_treat_pileup.bw color=99,101,21 visibility=full yLineOnOff=on autoScale=on yLineMark="0.0" alwaysZero=on graphType=bar maxHeightPixels=128:75:11 windowingFunction=maximum smoothingWindow=10
+
+track type=bigWig name="H3K27ac_ESC" description="H3K27ac_ESC" bigDataUrl=http://human.bio.lmu.de/_webtools/data/pooled_H3K27ac_ESC.sorted.bam_treat_pileup.bw color=250,20,20 visibility=full yLineOnOff=on autoScale=on yLineMark="0.0" alwaysZero=on graphType=bar maxHeightPixels=128:75:11 windowingFunction=maximum smoothingWindow=10
+
+track type=bigWig name="H3K27ac_EpiLC" description="H3K27ac_EpiLC" bigDataUrl=http://human.bio.lmu.de/_webtools/data/pooled_H3K27ac_EpiLC.sorted.bam_treat_pileup.bw color=250,20,20 visibility=full yLineOnOff=on autoScale=on yLineMark="0.0" alwaysZero=on graphType=bar maxHeightPixels=128:75:11 windowingFunction=maximum smoothingWindow=10
+
+
+track type=bigWig name="Gunnar_H3K27me3_EpiLC_FE" description="Gunnar_H3K27me3_EpiLC_FE" bigDataUrl=http://human.bio.lmu.de/_webtools/data/Gunnar_H3K27me3_EpiLC_FE.bw color=0,0,255 visibility=full yLineOnOff=on autoScale=on yLineMark="0.0" alwaysZero=on graphType=bar maxHeightPixels=128:75:11 windowingFunction=maximum smoothingWindow=10
+
+track type=bigWig name="Gunnar_H3K27me3_T12CM_EpiLC_FE" description="Gunnar_H3K27me3_T12CM_EpiLC_FE" bigDataUrl=http://human.bio.lmu.de/_webtools/data/Gunnar_H3K27me3_T12CM_EpiLC_FE.bw color=0,0,255 visibility=full yLineOnOff=on autoScale=on yLineMark="0.0" alwaysZero=on graphType=bar maxHeightPixels=128:75:11 windowingFunction=maximum smoothingWindow=10
+
+track type=bigWig name="Gunnar_H3K27me3_T12KO_EpiLC_FE" description="Gunnar_H3K27me3_T12KO_EpiLC_FE" bigDataUrl=http://human.bio.lmu.de/_webtools/data/Gunnar_H3K27me3_T12KO_EpiLC_FE.bw color=0,0,255 visibility=full yLineOnOff=on autoScale=on yLineMark="0.0" alwaysZero=on graphType=bar maxHeightPixels=128:75:11 windowingFunction=maximum smoothingWindow=10
+
+track type=bigWig name="Gunnar_H3K4me3_EpiLC_FE" description="Gunnar_H3K4me3_EpiLC_FE" bigDataUrl=http://human.bio.lmu.de/_webtools/data/Gunnar_H3K4me3_EpiLC_FE.bw color=0,0,255 visibility=full yLineOnOff=on autoScale=on yLineMark="0.0" alwaysZero=on graphType=bar maxHeightPixels=128:75:11 windowingFunction=maximum smoothingWindow=10
+
+track type=bigWig name="Gunnar_H3K4me3_T12CM_EpiLC_FE" description="Gunnar_H3K4me3_T12CM_EpiLC_FE" bigDataUrl=http://human.bio.lmu.de/_webtools/data/Gunnar_H3K4me3_T12CM_EpiLC_FE.bw color=0,0,255 visibility=full yLineOnOff=on autoScale=on yLineMark="0.0" alwaysZero=on graphType=bar maxHeightPixels=128:75:11 windowingFunction=maximum smoothingWindow=10
+
+track type=bigWig name="Gunnar_H3K4me3_T12KO_EpiLC_FE" description="Gunnar_H3K4me3_T12KO_EpiLC_FE" bigDataUrl=http://human.bio.lmu.de/_webtools/data/Gunnar_H3K4me3_T12KO_EpiLC_FE.bw color=0,0,255 visibility=full yLineOnOff=on autoScale=on yLineMark="0.0" alwaysZero=on graphType=bar maxHeightPixels=128:75:11 windowingFunction=maximum smoothingWindow=10
+
+track type=bigWig name="Tet1_ESC" description="Tet1_ESC" bigDataUrl=http://human.bio.lmu.de/_webtools/data/Tet1-C_treat_pileup.bw color=99,101,21 visibility=full yLineOnOff=on autoScale=on yLineMark="0.0" alwaysZero=on graphType=bar maxHeightPixels=128:75:11 windowingFunction=maximum smoothingWindow=10
+
+
+track type=bigWig name="H4K16ac_ESC" description="H4K16ac_ESC" bigDataUrl=http://human.bio.lmu.de/_webtools/data/H4K16ac_treat_pileup.bw color=99,101,21 visibility=full yLineOnOff=on autoScale=on yLineMark="0.0" alwaysZero=on graphType=bar maxHeightPixels=128:75:11 windowingFunction=maximum smoothingWindow=10
+
+
+
+
+Hes6
+Eif4ebp1
+Hspa9
+
